@@ -179,8 +179,7 @@ int main() {
 	cout << "3. Badhaai Ho" << endl;
 	cout << "4. Zero" << endl;
 	cout << "Select Movie : ";
-	cin >> m;
-	if(m == 1) {Cinemax m1 , m2 , m3 , m4;}*/
+	cin >> m;*/
 	Cinemax m;
     int ch;
 	while(ch != 4) {
