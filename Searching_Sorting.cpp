@@ -1,6 +1,9 @@
 /*
-
+Implementation of C++ program for sorting and searching with user defined record.
+Write C++ program using STL for sorting and searching with user defined records such as person record (Name, birth, date, telephone no) 
+or item record (item code, item name, quantity and cost).
 */
+
 #include <iostream>
 #include <iomanip>
 #include <algorithm>
@@ -9,7 +12,7 @@ using namespace std;
 
 class Person{
   string name;
-  int dd,mm,yyyy;
+  int dd , mm , yyyy;
   long phno;
   friend bool compareName(Person, Person);
   friend bool compareDOB(Person, Person);
@@ -18,7 +21,7 @@ class Person{
   friend bool operator==(Person, int);
   friend bool operator==(Person, long);
 public:
-  void getData(){
+  void getData() {
     cout << endl;
     char ch;
     cout << "Enter the name of Person:";
@@ -84,7 +87,7 @@ int main() {
     p[i].display();
   }
   int ch;
-	while(ch != 7) {
+  while(ch != 7) {
     cout<<"1.Sort Data By Name" << endl;
     cout<<"2.Sort Data By DOB" << endl;
     cout<<"3.Sort Data By Phone Number" << endl;
@@ -94,17 +97,17 @@ int main() {
     cout<<"7.Exit" << endl;
     cout<<"Enter your choice: ";
     cin>>ch;
-		switch(ch){
-			case 1:
+    switch(ch) {
+	case 1:
         sort(p , p+n , compareName);
         cout << endl;
         cout << endl << "-------- Data After Sorting By Name ---------" << endl;
         cout << "Name" << setw(12) << "DOB" << setw(15) << "Phone" << endl;
-        for(int i=0;i<n;i++){
+        for(int i = 0 ; i < n ; i++) {
           p[i].display();
         }
-				break;
-			case 2:
+	break;
+	case 2:
         sort(p , p+n , compareDOB);
         cout << endl;
         cout << endl << "-------- Data After Sorting By Name ---------" << endl;
@@ -112,8 +115,8 @@ int main() {
         for(int i = 0 ; i < n ; i++) {
           p[i].display();
         }
-				break;
-			case 3:
+	break;
+	case 3:
         sort(p , p+n , comparePhone);
         cout << endl;
         cout << endl << "-------- Data After Sorting By Name ---------" << endl;
@@ -121,8 +124,8 @@ int main() {
         for(int i = 0 ; i < n ; i++) {
           p[i].display();
         }
-				break;
-			case 4:
+	break;
+	case 4:
         cout << endl << "Enter Name to find: ";
         cin.ignore();
         getline(cin, name);
@@ -133,8 +136,8 @@ int main() {
         }
         else
           cout << endl << "Name " << name << " not found in Database!" << endl;
-				break;
-			case 5:
+	break;
+	case 5:
         char ch;
         cout << endl << "Enter Date of Birth(dd/mm/yyyy) to search: ";
         cin >> dd >> ch >> mm >> ch >> yyyy;
@@ -146,18 +149,19 @@ int main() {
         }
         else
           cout << endl << "DOB "<<dd<<ch<<mm<<yyyy<<" not found in Database!" << endl;
-				break;
-			case 6:
+	break;
+	case 6:
         cout << endl << "Enter Phone Number to search: ";
         cin >> phno;
         p2 = find(p, p+n, phno);
-        if (p2 != p+n){
+        if (p2 != p+n) {
           cout << endl;
           p2->display();
         }
         else
           cout << endl << "Phone Number " << phno <<" not found in Database!" << endl;
-				break;
-		}
-	}
+	break;
+    }
+  }
+  return 0;	
 }
