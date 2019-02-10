@@ -149,7 +149,6 @@ void tree :: mirrorImage(Node *x) {
 	if(x == NULL) {
 		return;
 	}
-	//cout << "Inside mirror function with data " << x->data << endl;
 	if(x->lchild == NULL && x->rchild == NULL) {
 		return;
 	}
@@ -236,10 +235,14 @@ void tree :: copy(Node *x , Node *y) {
 		return;
 	}
 	else {
-		Node *l = new Node(x->lchild->data);
-		Node *r = new Node(x->rchild->data);
-		y->lchild = l;
-		y->rchild = r;
+		if(x->lchild != NULL) {
+			Node *l = new Node(x->lchild->data);
+			y->lchild = l;
+		}
+		if(x->rchild != NULL) {
+			Node *r = new Node(x->rchild->data);
+			y->rchild = r;
+		}
 	}
 	copy(x->lchild , y->lchild);
 	copy(x->rchild , y->rchild);
